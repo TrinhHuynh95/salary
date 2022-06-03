@@ -47,5 +47,3 @@ example: run create_mst_config_table.js in test environment
 |npm run migrate file=create_mst_config_table env=test
 ```
 
-### Run docker
->docker-compose up
