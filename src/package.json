@@ -1,0 +1,37 @@
+{
+  "name": "salary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=dev && nodemon tools/server.js",
+    "dev-win": "set NODE_ENV=dev && nodemon tools/server.js",
+    "migrate": "node tools/migrate.js",
+    "seed": "node tools/seed.js",
+    "test": "set NODE_ENV=test && jest",
+	"lint": "eslint --fix --ext .js ./src ./tests ./tools"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.16.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.4.6",
+    "eslint-plugin-n": "^15.2.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "jest": "^28.1.0"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^20.2.2",
+    "@hapi/inert": "^6.0.5",
+    "@hapi/vision": "^6.1.0",
+    "dotenv": "^16.0.1",
+    "knex": "^2.1.0",
+    "mongodb": "^4.6.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "pug": "^3.0.2"
+  }
+}

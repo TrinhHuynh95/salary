@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+    - const lang = sys.require('src/lib/lang')
+    div.container.py-4
+        header.pb-3.mb-4.border-bottom=title
+        div.row.align-items-md-stretch.mt-3
+            div.col-md-6
+                form(role='form' method='GET' action='')
+                    div.row.mb-2
+                        label.col-sm-6.col-form-label(for='salary') #{lang.get('attributes.salary_input')}:
+                        div.col-sm-4
+                            input#salary.form-control(type='text', placeholder='' name='salary' value=`${oldReq.salary || ''}`)
+                        label.col-sm-2.col-form-label=lang.get('site.money_unit')
+
+                    div.row.mb-2
+                        label.col-sm-6.col-form-label(for='insured_salary')
+                            |#{lang.get('attributes.insured_salary')} (default = #{lang.get('attributes.salary_input')}):
+                        div.col-sm-4
+                            input#insured_salary.form-control(type='text', placeholder='' name='insured_salary' value=`${oldReq.insured_salary || ''}`)
+                        label.col-sm-2.col-form-label=lang.get('site.money_unit')
+
+                    div.row.mb-2
+                        label.col-sm-6.col-form-label(for='depend_amount') #{lang.get('attributes.depend_amount')}:
+                        div.col-sm-4
+                            input#depend_amount.form-control(type='text', placeholder='' name='depend_amount' value=`${oldReq.depend_amount || ''}`)
+                        label.col-sm-2.col-form-label=lang.get('site.money_unit')
+
+                    if error
+                        div.alert.alert-danger=error
+                    div.text-end.me-5
+                        button.btn.btn-primary(type="submit") Submit
+            div.col-md-6
+                ul.list-group
+                    li.list-group-item
+                        |#{lang.get('attributes.gross')} :
+                        if salaryCalc.gross_to_net
+                            label.float-end=salaryCalc.gross_to_net.toLocaleString() + ' ' + lang.get('site.money_unit')
+                    li.list-group-item
+                        | #{lang.get('attributes.insurance')} :
+                        if salaryCalc.gross_to_net
+                            label.float-end='-' + salaryCalc.insured_amount.toLocaleString() + ' ' + lang.get('site.money_unit')
+                    li.list-group-item
+                        | #{lang.get('attributes.tax')} :
+                        if salaryCalc.gross_to_net
+                            label.float-end='-' + salaryCalc.tax.toLocaleString() + ' ' + lang.get('site.money_unit')
