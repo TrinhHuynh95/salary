@@ -24,7 +24,12 @@ DB_PASSWORD=secret071
 DB_DATABASE=salary
 ```
 
+### Run docker
+>docker-compose up
+
 ### Migration and seed
+After docker, open cli to generate migration and seed
+
 By default, when not any option, it runs all files in dev environment
 - Migration
 >npm run migrate
@@ -41,5 +46,3 @@ example: run create_mst_config_table.js in test environment
 |npm run migrate file=create_mst_config_table env=test
 ```
 
-### Run docker
->docker-compose up
