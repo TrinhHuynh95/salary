@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prod": "node tools/server.js",
     "dev": "NODE_ENV=dev && nodemon tools/server.js",
     "dev-win": "set NODE_ENV=dev && nodemon tools/server.js",
     "migrate": "node tools/migrate.js",

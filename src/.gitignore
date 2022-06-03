@@ -1,5 +1,5 @@
 /node_modules
 /.idea
-.env.*
+.env.prod
 /coverage.data
 /coverage/

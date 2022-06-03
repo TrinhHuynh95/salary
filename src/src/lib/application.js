@@ -67,6 +67,7 @@ class Application {
   async runServer () {
     const port = config.get('app.port', 3000)
     const host = config.get('app.host', 'localhost')
+    const env = (process.env.NODE_ENV || 'dev').trim()
     const server = Hapi.server({
       port,
       host,
@@ -82,9 +83,9 @@ class Application {
       path: config.get('app.sys_paths.view'),
       compileOptions: {
         pretty: false,
-        debug: !process.env.NODE_ENV.trim() === 'prod'
+        debug: !env === 'prod'
       },
-      isCached: process.env.NODE_ENV.trim() === 'prod'
+      isCached: env === 'prod'
     })
     this.routes.forEach(item => server.route(item))
     await server.start()
