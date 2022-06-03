@@ -6,9 +6,12 @@ const cmd = new CommandBase()
 process.env.NODE_ENV = cmd.argument('env', 'dev')
 
 app.initEnv()
-app.loadConfig().then(async () => {
+app.loadConfig()
+
+const run = async () => {
   const database = await app.initDatabase()
 
   await database.seed(cmd.argument('file'))
   process.exit()
-})
+}
+run();

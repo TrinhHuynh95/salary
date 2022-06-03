@@ -5,6 +5,7 @@ const env = (process.env.NODE_ENV || 'dev').trim()
 module.exports = {
   env,
   port: process.env.PORT || 3001,
+  host: process.env.HOST || 'localhost',
   allowed_origins: allowedOrigins.split(',').map(url => url.trim()),
   sys_paths: {
     repository: path.resolve(__dirname, '../repositories'),

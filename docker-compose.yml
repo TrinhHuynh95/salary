@@ -45,30 +45,15 @@ services:
     container_name: server_node
     restart: unless-stopped
     environment:
-      - NODE_ENV=prod
+      - NODE_ENV=dev
     volumes:
-      - ./src:/src
-      - /src/node_modules
+      - ./src:/localsrc
+      - /localsrc/node_modules
     ports:
       - '3000:3000'
     depends_on:
       - mysql_db
       - mongo_db
-    networks:
-      - net_com
-  nignx_proxy:
-    container_name: nignx_proxy
-    restart: unless-stopped
-    image: nginx
-    build: .
-    ports:
-      - '80:80'
-    depends_on:
-      - server_node
-    volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-    networks:
-      - net_com
 
 networks:
   net_com:

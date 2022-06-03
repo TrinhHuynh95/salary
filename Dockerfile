@@ -1,8 +1,8 @@
 FROM node:16.15-alpine3.14
 
-WORKDIR /src
+WORKDIR /localsrc
 
-COPY /src /src
+COPY /src .
 
 RUN npm install
 
