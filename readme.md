@@ -29,6 +29,7 @@ DB_DATABASE=salary
 
 ### Migration and seed
 After docker, open cli to generate migration and seed
+
 By default, when not any option, it runs all files in dev environment
 - Migration
 >npm run migrate
